@@ -10,7 +10,6 @@ import tiktoken
 import logging
 import sys
 current_dir = os.getcwd()
-# 添加 f1 目录到搜索路径
 sys.path.append(os.path.join(current_dir, 'static_analysis'))
 from SolidityParser import parseFile
 from SolidityParser import parseString
@@ -471,7 +470,7 @@ class ContractAgent:
         for part in error_list:
             if part[:5] == "Error":
                 match = re.search(r'text\.sol:(\d+):', part)
-                # #This type of SPDX error does not report a line number, so when encountering this type of error, the beginning is extracted completely, so the line number 1 is directly returned
+                # This type of SPDX error does not report a line number, so when encountering this type of error, the beginning is extracted completely, so the line number 1 is directly returned
                 if "Multiple SPDX license identifiers" in part:
                     error_message = '\n'.join(['// ' + line for line in part.split('\n')])
                     res_list.append((1, error_message))
