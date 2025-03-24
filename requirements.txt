@@ -1,0 +1,6 @@
+requests = 2.32.3
+tiktoken = 0.9.0
+pandas = 2.2.3
+antlr4-tools = 0.2
+antlr4-python3-runtime = 4.12.0
+solc-select

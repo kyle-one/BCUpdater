@@ -209,14 +209,8 @@ Please output in the following format:
 ["keyword1", "keyword2"]
 ```"""
 
-proxy = {
-    'http': 'http://127.0.0.1:7890',
-    'https': 'http://127.0.0.1:7890'
-}
-
-api_key = "sk-Qh7RmyZqPICm287T1f0eFfAf933446E78b282e92C6EcE492"
-api_url = 'https://www.gptapi.us/v1/chat/completions'
-api_keys = ["sk-Qh7RmyZqPICm287T1f0eFfAf933446E78b282e92C6EcE492",
+api_url = 'https://www.api.openai.com/v1/chat/completions'
+api_keys = ["",
             ]
 
 class ContractAgent:
@@ -420,7 +414,7 @@ class ContractAgent:
                     'model': 'gpt-4o-mini',
                     'messages': request_input,
                     'max_tokens': 16000,
-                }, headers={'Authorization': api_keys[0]}, proxies=proxy)
+                }, headers={'Authorization': api_keys[0]})
 
                 response_str = response.json()["choices"][0]["message"]["content"]
                 self.input_num_tokens = self.get_num_tokens(prompt)
